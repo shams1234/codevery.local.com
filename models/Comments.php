@@ -1,5 +1,7 @@
 <?php
 
+require_once ROOT . '/configs/Mailer.php';
+
 class Comments
 {
     public static function getAllComments() {
@@ -70,7 +72,7 @@ public static function addComments () {
     $author = Sessions::get('id');
     $mid = $_POST['mid'];
     $parent_id = $_POST['parent_id'];
-    
+
 $commentMailTitle = "New comment was added!";
 
     $id_session =  Sessions::get('id');
@@ -80,7 +82,7 @@ $commentMailTitle = "New comment was added!";
     $result = $conn->query($sql);
 
     $data=[];
-    if ($result === TRUE) {
+    if ($result === true) {
 
         $data = array(
 
@@ -90,7 +92,7 @@ $commentMailTitle = "New comment was added!";
 
         );
 
-//        Mailer::messageMail($author, $commentMailTitle, $cdesc, $cdate);
+        Mailer::commentMail($author, $commentMailTitle, $cdesc, $cdate);
 
     }
 

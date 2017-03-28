@@ -51,7 +51,8 @@
 
     </div>
     <div class="container ">
-    <h3 class="section-heading">Messages: <?= count($allMessages);?> </h3>
+    <h3 class="section-heading">Messages: </h3>
+<!--        --><?//= Messages::countMessages();?>
     <ul class="messages-list">
 
         <hr>

@@ -7,7 +7,7 @@ function addComment() {
 
     $(document).on('submit', '.commentForm', function (e) {
         e.preventDefault();
-        
+
         var id = $(this).parent('.messages').attr('id');
         var textVal = $(this).parent('.messages').find('textarea').val();
 
@@ -25,7 +25,7 @@ function addComment() {
 
                 $('ul.comments').append(jsonStr);
 
-                toggle();
+                // toggle();
 
                 noty({
                     "theme": 'bootstrap',
@@ -69,7 +69,7 @@ function addMessage() {
 
                 $('ul.messages-list').html(jsonStr);
 
-                toggle();
+                // toggle();
 
                 noty({
                     "theme": 'bootstrap',

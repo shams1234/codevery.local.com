@@ -6,6 +6,8 @@ class Messages
 {
 
     public static function getAllMessages() {
+
+        Sessions::start();
 //    public function getAllMessages($from, $to) {
 
 //
@@ -32,10 +34,11 @@ class Messages
         $count = $result->num_rows;
         $data = [];
         if ($count > 0) {
+
             while ($row = $result->fetch_assoc()) {
                 $data[] = $row;
             }
-
+            Sessions::set('messages',count($data));
 
         }
 
@@ -69,7 +72,7 @@ class Messages
         $result = $conn->query($sql);
 
         $data=[];
-        if ($result === TRUE) {
+        if ($result === true) {
 
             $last_id = $conn->insert_id;
             $data = array(
@@ -81,20 +84,29 @@ class Messages
                 "mid" => $last_id
             );
 
-            Mailer::messageMail($mauthor, $mtitle, $mdesc, $mdate);
+            Mailer::messageMail($email_session, $mtitle, $mdesc, $mdate);
 
         }
 
         return $data;
 
 
+    }
 
-//        if ($result === TRUE) {
-//            echo "New record created successfully";
-//        } else {
-//            echo "Error: " . $sql . "<br>" . $this->connect()->errno;
-//        }
+    public static function countMessages()
+    {
 
+//        Sessions::show();
+
+        if (Sessions::get('messages')) {
+
+            $count = Sessions::get('messages');
+
+
+            return $count;
+        } else {
+            return 0;
+        }
     }
 
 }

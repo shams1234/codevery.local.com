@@ -20,17 +20,19 @@ class Mailer
     }
 
 
-//    public static function commentMail($from, $subject, $message, $date) {
-//
-//        $to = self::$adminEmail;
-//
-//        $commentSubject = 'New comment added! From: ' . $from;
-//
-//        $commentBody = '<h3><b>' . $subject .'</b></h3><p>' . $message . '</p><p>Added at:' . $date . '</p>' ;
-//
-//        $mail = mail($to, $commentSubject, $commentBody );
-//
-//        return $mail;
-//    }
+    public static function commentMail($from, $subject, $message, $date) {
+
+        $to = self::$adminEmail;
+
+        $commentSubject = 'New comment added! From: ' . $from;
+            $commentSubjectCopy = 'You add a new comment';
+
+        $commentBody = '<h3><b>' . $subject .'</b></h3><p>' . $message . '</p><p>Added at:' . $date . '</p>' ;
+
+        $mail = mail($to, $commentSubject, $commentBody );
+        $mailCopy = mail($from, $commentSubjectCopy, $commentBody);
+
+        return true;
+    }
 
 }
