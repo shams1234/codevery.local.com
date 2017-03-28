@@ -1,0 +1,163 @@
+/* Import Section
+=================================================================== */
+
+
+
+
+/*=================================================================== */
+
+textarea {
+    resize: vertical;
+}
+
+li {
+    list-style-type: none;
+}
+
+
+a {
+    color: #666;
+}
+
+a:hover {
+    color: #999;
+}
+
+.msgError {
+    background-color: #f2dede;
+    border-color: #ebcccc;
+    color: #a94442;
+    border-radius: .25rem;
+}
+
+.msgNoty {
+    background-color: #dff0d8;
+    border-color: #d0e9c6;
+    color: #3c763d;
+    border-radius: .25rem;
+}
+
+li.messages{
+    display: none;
+}
+
+.section {
+    padding: 8rem 0 7rem;
+    text-align: center;
+}
+.section-heading,
+.section-description {
+    margin-bottom: 1.2rem;
+}
+.user-avatar-small {
+    position: relative;
+    background: #fff;
+    padding: 5px;
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, .25);
+    margin: 0 auto;
+}
+
+.user-avatar-small img {
+    width: 125px;
+    border-radius: 50%;
+}
+
+.messages {
+    position: relative;
+    /*height: 250px;*/
+    height: 100%;
+}
+
+.comments {
+    margin-bottom: 50px;
+}
+
+.comment {
+    background-color: rgba(247, 247, 247, 0.39);
+    border: 1px solid #f7f7f7;
+    margin-top: 10px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.comment p {
+    font-weight: bold;
+    margin: 0;
+}
+
+.comment p span{
+    font-weight: normal;
+    margin: 0;
+}
+
+.comment-date {
+    float: right;
+}
+
+p.comments-count {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.messages-list{
+    margin-top: 35px;
+}
+
+.message-id {
+    font-size: 16em;
+    color: rgba(227, 227, 227, 0.3);
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    font-weight: bold;
+    /* height: 125px; */
+    display: inline-block;
+    line-height: 200px;
+
+}
+
+.message-id span {
+    display: inline-block;
+}
+
+span.message-title, span.message-date, .comments-count, .message-author {
+    font-weight: bold;
+}
+
+.message-desc-header {
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    z-index: 2;
+}
+
+.message-desc {
+    z-index: 2;
+    position: relative;
+}
+
+.message-author span {
+    font-weight: normal;
+}
+
+.send-copy {
+    float: right;
+    margin-top: 12px;
+}
+
+.welcome {
+    float: right;
+    font-size: 1.4rem;
+}
+
+.welcome span {
+   font-weight: bold;
+}
+
+.welcome p {
+    margin-top: 10px;
+}
