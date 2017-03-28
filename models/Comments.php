@@ -100,4 +100,36 @@ $commentMailTitle = "New comment was added!";
 
 }
 
+//public static function replyComments () {
+//    $conn = Db::connect();
+//
+//    Sessions::start();
+//
+//    $cdesc = $_POST['reply'];
+//    $cdate = date("Y-m-d H:i:s");
+//    $author = Sessions::get('id');
+//    $mid = $_POST['mid'];
+//    $parent_id = $_POST['parent_id'];
+//    $sql = "INSERT INTO comments (mid, parent_id, cdesc,cdate,author) VALUES ('$mid','$parent_id', '$cdesc' ,'$cdate','$author')";
+//    $result = $conn->query($sql);
+//    $commentMailTitle = "New comment was added!";
+//
+//    $data=[];
+//    if ($result === true) {
+//
+//        $data = array(
+//
+//            "cdesc" => $cdesc,
+//            "cdate" => $cdate,
+//            "author" => $author,
+//
+//        );
+//
+//        Mailer::commentMail($author, $commentMailTitle, $cdesc, $cdate);
+//
+//    }
+//
+//    return $data;
+//}
+
 }

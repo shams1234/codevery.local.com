@@ -1,7 +1,67 @@
 $(document).ready(function () {
+    replyForm();
+
     toggle();
     sendId();
 });
+
+
+function addReply() {
+
+    $(document).on('submit','.replyForm', function(e){
+        e.preventDefault();
+
+        console.log("test");
+
+        var id = $(this).attr("data-id");
+        var textVal = $(this).find('textarea').val();
+
+
+        console.log(textVal);
+        console.log(id);
+
+        $.ajax({
+            type: "POST",
+            url: "/setComments",
+            dataType: 'html',
+            data: {
+                mid: id,
+                parent_id: id,
+                comment: textVal
+            },
+
+            success: function (jsonStr) {
+
+                // $('ul.comments').append(jsonStr);
+
+                // toggle();
+
+                noty({
+                    "theme": 'bootstrap',
+                    "text": '<h4>Your Reply successfully added! </h4>',
+                    "layout": 'topRight',
+                    "timeout": 5000,
+                    "animation": {
+                        "open": 'animated bounceInRight',
+                        "close": 'animated bounceOutRight',
+                        "easing": 'swing',
+                        "speed": 500
+                    },
+                    "modal": false
+                });
+
+                console.log("Form submitted successfully.\nReturned comment: " + JSON.stringify(jsonStr));
+            }
+        });
+
+        return false;
+
+    })
+}
+
+
+
+
 
 function addComment() {
 
@@ -237,6 +297,39 @@ function toggle() {
 
 }
 
+function checkReply() {
+
+
+    $.validate({
+        form: '#replyForm',
+        onError: function ($form) {
+            noty({
+
+                "text": '<h4>Required fields must be not empty!</h4>',
+                "layout": 'topRight',
+                "timeout": 5000,
+                "animation": {
+                    "open": 'animated bounceInRight',
+                    "close": 'animated bounceOutRight',
+                    "easing": 'swing',
+                    "speed": 500
+                },
+                "modal": false
+            })
+        },
+
+        onSuccess: function ($form) {
+
+            addReply();
+
+        }
+    });
+
+
+}
+
+
+
 
 function checkMessage() {
 
@@ -341,4 +434,18 @@ function checkUsersInput() {
             });
         }
     });
+}
+
+function replyForm () {
+
+        var idBtn = $(this).find('.replyFormBtn').attr('data-id');
+        $(document).on('click','.replyFormBtn', function(){
+
+            console.log($(this).attr('data-id'));
+
+            $(this).next(".replyForm").slideToggle("fast");
+            return false;
+
+    })
+
 }

@@ -23,6 +23,18 @@ a:hover {
     color: #999;
 }
 
+button.btn2 {
+
+    border:none
+}
+
+button.btn2:hover {
+
+    -webkit-box-shadow: 1px 4px 10px 0px rgba(0,0,0,0.1);
+    -moz-box-shadow: 1px 4px 10px 0px rgba(0,0,0,0.1);
+    box-shadow: 1px 4px 10px 0px rgba(0,0,0,0.1);
+}
+
 .msgError {
     background-color: #f2dede;
     border-color: #ebcccc;
