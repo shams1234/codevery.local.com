@@ -27,7 +27,7 @@ class Messages
                 $offset = 0;
 
             }
-        $sql = "SELECT * FROM messages ORDER BY MID DESC LIMIT $limit OFFSET $offset";
+        $sql = "SELECT * FROM messages ORDER BY MID ASC LIMIT $limit OFFSET $offset";
 
 //        $sql = "SELECT * FROM messages";
         $conn = Db::connect();

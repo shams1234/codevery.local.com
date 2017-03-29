@@ -40,7 +40,7 @@ class Comments
             echo 'nothing found';
         }
 
-            $sql = "SELECT * FROM comments WHERE mid = $mid";
+            $sql = "SELECT * FROM comments WHERE mid = $mid AND parent_id = mid";
             $result = $conn->query($sql);
 
             $count = $result->num_rows;
@@ -70,13 +70,14 @@ public static function addComments () {
     $author = Sessions::get('id');
     $mid = $_POST['mid'];
     $parent_id = $_POST['parent_id'];
+    $child_id = $_POST['child_id'];
 
 $commentMailTitle = "New comment was added!";
 
     $id_session =  Sessions::get('id');
     $email_session = Sessions::get('email');
 
-    $sql = "INSERT INTO comments (mid, parent_id, cdesc,cdate,author) VALUES ('$mid','$parent_id', '$cdesc' ,'$cdate','$author')";
+    $sql = "INSERT INTO comments (mid, parent_id, child_id , cdesc,cdate,author) VALUES ('$mid','$parent_id', '$child_id', '$cdesc' ,'$cdate','$author')";
     $result = $conn->query($sql);
 
     $data=[];
@@ -98,36 +99,41 @@ $commentMailTitle = "New comment was added!";
 
 }
 
-//public static function replyComments () {
-//    $conn = Db::connect();
+public static function getChildsComments ($child) {
+    $conn = Db::connect();
+
+    Sessions::start();
+
+    if($child !== 0) {
+        $child_id = $child;
+//        var_dump($allChilds);
+
+        $sql = "SELECT c1.*, COUNT( c2.parent_id ) AS childcount FROM comments c1
+            LEFT JOIN comments c2 ON c2.parent_id = c1.cid
+            WHERE c1.child_id = '$child_id'
+            GROUP BY c1.cid";
+        $result = $conn->query($sql);
+
+        $count = $result->num_rows;
+
+        return $count;
+
+    } else {
+        return 0;
+    }
+
+//    $allChilds = self::getAllComments();
 //
-//    Sessions::start();
-//
-//    $cdesc = $_POST['reply'];
-//    $cdate = date("Y-m-d H:i:s");
-//    $author = Sessions::get('id');
-//    $mid = $_POST['mid'];
-//    $parent_id = $_POST['parent_id'];
-//    $sql = "INSERT INTO comments (mid, parent_id, cdesc,cdate,author) VALUES ('$mid','$parent_id', '$cdesc' ,'$cdate','$author')";
-//    $result = $conn->query($sql);
-//    $commentMailTitle = "New comment was added!";
-//
-//    $data=[];
-//    if ($result === true) {
-//
-//        $data = array(
-//
-//            "cdesc" => $cdesc,
-//            "cdate" => $cdate,
-//            "author" => $author,
-//
-//        );
-//
-//        Mailer::commentMail($author, $commentMailTitle, $cdesc, $cdate);
-//
-//    }
-//
-//    return $data;
+//    foreach ($allChilds as $child) {
+//        $child_id = $child['child_id'];
+
+
+
+    }
+
+//    $child_id = '16';
+
 //}
+
 
 }

@@ -21,7 +21,7 @@ class commentsController
 
 //        echo json_encode($commentsById);
 
-        include (ROOT . '/views/layouts/tmplComments.php');
+        require_once (ROOT . '/views/layouts/tmplComments.php');
 
         return true;
     }
@@ -34,7 +34,7 @@ class commentsController
 
 //        echo json_encode($newMessage);
 
-        include (ROOT . '/views/layouts/tmplComments.php');
+//        require_once (ROOT . '/views/layouts/tmplComments.php');
 
         return true;
     }

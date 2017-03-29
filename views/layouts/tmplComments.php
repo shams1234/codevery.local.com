@@ -1,9 +1,9 @@
-<div class="comments row offset-by-three nine columns">
+<ul class="comments row offset-by-three nine columns">
     <?php if (!is_array($commentsById) && count($commentsById) === 0): $commentsById = Comments::getCommentsByMessageId(); ?>
 <?php else :?>
 <?php foreach ($commentsById as $comment): ?>
-    <ul class="comment <?= $comment['cid']; ?>" id="<?= $comment['cid']; ?>" >
-        <li class="row">
+    <li class="comment <?= $comment['cid']; ?>" id="<?= $comment['cid']; ?>" >
+        <div class="row">
             <div class="twelve columns">
                 <div class="info">
                     <div class="six columns">
@@ -14,16 +14,21 @@
                     </div>
                 </div>
             </div>
-        </li>
-        <li class="row">
+        </div>
+        <div class="row">
             <div class="twelve columns">
                     <blockquote class="comment-desc"><?= $comment['cdesc']; ?></blockquote>
             </div>
 
             <div class="replys">
-                <button data-id="<?= $comment['cid']; ?>" class="replyFormBtn btn2 <?= $comment['cid']; ?>">reply</button>
+                <button data-id="<?= $comment['cid']; ?>" class="replyFormBtn btn2 <?= $comment['cid']; ?>"><i class="fa fa-reply" aria-hidden="true"></i></button>
+                <button data-id="<?= $comment['parent_id']; ?>" class="count btn2 <?= $comment['cid']; ?>"><i class="fa fa-hand-o-down" aria-hidden="true"></i><span><?= Comments::getChildsComments($comment['child_id']); ?></span></button>
 
-                <?php echo "
+<?php if (Sessions::get('id') && Sessions::get('id') === 'Anonymous') {
+     echo "<span class='anonymous'>Anonymous users can not reply</span> "; } else {
+
+
+ echo "
             <form style= 'display:none' id='replyForm' class='replyForm' method='post' data-id= " . $comment['cid'] . " enctype='multipart/form-data'>
                 <div class='twelve columns'>
                   
@@ -34,13 +39,13 @@
                     </div>
 
             </form>
-        ";
+        ";}
 
                 ?>
 
             </div>
-        </li>
-    </ul>
+        </div>
+    </li>
 <?php endforeach; ?>
 <?php endif;?>
-</div>
+</ul>

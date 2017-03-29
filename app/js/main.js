@@ -8,7 +8,7 @@ function init () {
 
 
 $(document).ready(function () {
-    init();
+init()
 });
 
 $(document).ajaxComplete(function(event,request) {
@@ -40,19 +40,20 @@ console.log(request);
             data: {
                 mid: id,
                 parent_id: cid,
-                comment: textVal
+                comment: textVal,
+                child_id: cid
             },
 
             success: function (jsonStr) {
 
-                 $('ul.comments').append(jsonStr);
+                  $('ul.comments').html(jsonStr);
 
                 // toggle();
 
                 noty({
                     "text": '<h4>Your Reply successfully added! </h4>',
                     "layout": 'topRight',
-                    "timeout": 5000,
+                    "timeout": 2000,
                     "animation": {
                         "open": 'animated bounceInRight',
                         "close": 'animated bounceOutRight',
@@ -61,6 +62,10 @@ console.log(request);
                     },
                     "modal": false
                 });
+
+                setTimeout(function(){
+                    location.reload();
+                }, 3000);
 
                 console.log("Form submitted successfully.\nReturned comment: " + JSON.stringify(jsonStr));
             }
@@ -99,11 +104,12 @@ function addComment() {
 
                 // toggle();
 
+
                 noty({
                     "theme": 'bootstrap',
                     "text": '<h4>Comment successfully added! </h4>',
                     "layout": 'topRight',
-                    "timeout": 5000,
+                    "timeout": 2000,
                     "animation": {
                         "open": 'animated bounceInRight',
                         "close": 'animated bounceOutRight',
@@ -112,6 +118,11 @@ function addComment() {
                     },
                     "modal": false
                 });
+
+
+                    setTimeout(function(){
+                        location.reload();
+                    }, 3000);
 
                 console.log("Form submitted successfully.\nReturned comment: " + JSON.stringify(jsonStr));
             }
@@ -200,9 +211,9 @@ function sendId() {
 
 
 function loadMore() {
-    // $('.loadmore').on('click', function(){
+    $('.loadmore').on('click', function(){
         // var elCount = $(' .loadmore').data('val');
-        // $('.loadmore').html("Loading...");
+        $('.loadmore').html("Loading...");
 
     var offset = 4;
 
@@ -245,9 +256,10 @@ function loadMore() {
                     }
                 });
             }
-            // $('.loadmore').html('Data Loading').prop('disabled', true);
+            $('.loadmore').html('Data Loading').prop('disabled', true);
+            $('.loadmore').prop('disabled', true);
         })
-    // })
+    })
 }
 function toggle() {
 
@@ -415,12 +427,13 @@ function checkUsersInput() {
 
 function replyForm () {
 
-        var idBtn = $(this).find('.replyFormBtn').attr('data-id');
+        // var idBtn = $(this).find('.replyFormBtn').attr('data-id');
         $(document).on('click','.replyFormBtn', function(){
 
             console.log($(this).attr('data-id'));
+            var id = ($(this).attr('data-id'));
 
-            $(this).next(".replyForm").slideToggle("fast");
+            $("form[data-id='" + id + "']").slideToggle("fast");
             return false;
 
     })

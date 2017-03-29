@@ -12,7 +12,6 @@
                 <a id="<?= $message['MID']; ?>" href="#"><i class="fa fa-plus-circle fa-3x"></i></a>
             </div>
         </div>
-
         <?php include ROOT . '/views/layouts/tmplComments.php'; ?>
     </li>
 
@@ -30,7 +29,10 @@
 
             </div>
         </div>
-        <?php
+    <?php if (Sessions::get('id') && Sessions::get('id') === 'Anonymous') {
+         } else {
+
+
         echo "
             <form class='commentForm' method='post' enctype='multipart/form-data'>
                 <div class='row offset-by-three nine columns'>
@@ -42,7 +44,7 @@
                     </div>
 
             </form>
-        ";
+        ";}
 
         ?>
 
@@ -50,4 +52,5 @@
 
     <hr>
 <?php endforeach; ?>
+
 <?php $from = $message['MID'] ?>
