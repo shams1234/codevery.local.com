@@ -40,8 +40,6 @@ class Comments
             echo 'nothing found';
         }
 
-
-
             $sql = "SELECT * FROM comments WHERE mid = $mid";
             $result = $conn->query($sql);
 

@@ -12,6 +12,7 @@
                 <a id="<?= $message['MID']; ?>" href="#"><i class="fa fa-plus-circle fa-3x"></i></a>
             </div>
         </div>
+
         <?php include ROOT . '/views/layouts/tmplComments.php'; ?>
     </li>
 

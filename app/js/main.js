@@ -11,13 +11,12 @@ function addReply() {
     $(document).on('submit','.replyForm', function(e){
         e.preventDefault();
 
-        console.log("test");
-
-        var id = $(this).attr("data-id");
+        var cid = $(this).attr('data-id');
+        var id = $(this).closest('.messages').attr('id');
         var textVal = $(this).find('textarea').val();
+        // var parent_id = ;
 
-
-        console.log(textVal);
+        console.log(cid);
         console.log(id);
 
         $.ajax({
@@ -26,18 +25,17 @@ function addReply() {
             dataType: 'html',
             data: {
                 mid: id,
-                parent_id: id,
+                parent_id: cid,
                 comment: textVal
             },
 
             success: function (jsonStr) {
 
-                // $('ul.comments').append(jsonStr);
+                 $('ul.comments').append(jsonStr);
 
                 // toggle();
 
                 noty({
-                    "theme": 'bootstrap',
                     "text": '<h4>Your Reply successfully added! </h4>',
                     "layout": 'topRight',
                     "timeout": 5000,
