@@ -3,6 +3,7 @@ function init () {
     loadMore();
     toggle();
     sendId();
+    showChildReplies();
 
 }
 
@@ -437,6 +438,21 @@ function replyForm () {
 
             $("form[data-id='" + id + "']").slideToggle("fast");
             return false;
+
+    })
+
+}
+
+function showChildReplies () {
+
+    $(document).on('click','#showChildrenBtn', function(){
+
+        console.log($(this).attr('data-id'));
+        console.log('test');
+        var id = ($(this).attr('data-id'));
+
+        $("#childrenMsg[data-id='" + id + "']").slideToggle("fast");
+        return false;
 
     })
 
