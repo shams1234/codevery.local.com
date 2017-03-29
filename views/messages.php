@@ -60,7 +60,7 @@
         <?php include (ROOT . '/views/layouts/tmplMsg.php'); ?>
     </ul>
 
-           <button class="button loadmore" data-val="<?= $from ;?>">Load More</button>
+<!--           <button class="button loadmore" data-val="--><?//= $from ;?><!--">Load More</button>-->
 
     </div>
 

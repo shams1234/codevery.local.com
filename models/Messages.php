@@ -5,45 +5,49 @@ require_once ROOT . '/configs/Mailer.php';
 class Messages
 {
 
-    public static function getAllMessages() {
+    public static function getAllMessages()
+    {
 
         Sessions::start();
-//    public function getAllMessages($from, $to) {
+//        public
+//        function getAllMessages($from, $to)
+//        {
 
-//
-//        if (isset($_GET['offset']) && isset($_GET['limit'])) {
-//
-//            $offset = $_GET['offset'];
-//
-//            $limit = $_GET['limit'];
-//
-//            $sql = "SELECT * FROM messages ORDER BY MID DESC LIMIT $limit OFFSET $offset";
-//
-//        } else {
-//
-//            $limit = 1;
-//            $offset = 0;
-//            $sql = "SELECT * FROM messages ORDER BY MID DESC LIMIT $limit OFFSET $offset";
-//        }
 
-        $sql = "SELECT * FROM messages";
+            if (isset($_GET['offset']) && isset($_GET['limit'])) {
+
+                $offset = $_GET['offset'];
+
+                $limit = $_GET['limit'];
+
+
+            } else {
+
+                $limit = 3;
+                $offset = 0;
+
+            }
+        $sql = "SELECT * FROM messages ORDER BY MID DESC LIMIT $limit OFFSET $offset";
+
+//        $sql = "SELECT * FROM messages";
         $conn = Db::connect();
 
 //        $sql = "SELECT * FROM messages ORDER BY MID DESC LIMIT $limit OFFSET $offset";
-        $result = $conn->query($sql);
-        $count = $result->num_rows;
-        $data = [];
-        if ($count > 0) {
+            $result = $conn->query($sql);
+            $count = $result->num_rows;
+            $data = [];
+            if ($count > 0) {
 
-            while ($row = $result->fetch_assoc()) {
-                $data[] = $row;
+                while ($row = $result->fetch_assoc()) {
+                    $data[] = $row;
+                }
+                Sessions::set('messages', count($data));
+
             }
-            Sessions::set('messages',count($data));
 
+            return $data;
         }
 
-        return $data;
-}
 
     public static function addMessages()
     {

@@ -1,12 +1,26 @@
-$(document).ready(function () {
+function init () {
     replyForm();
-
+    loadMore();
     toggle();
     sendId();
+
+}
+
+
+$(document).ready(function () {
+    init();
+});
+
+$(document).ajaxComplete(function(event,request) {
+
+// init();
+    toggle();
+console.log(event);
+console.log(request);
 });
 
 
-function addReply() {
+    function addReply() {
 
     $(document).on('submit','.replyForm', function(e){
         e.preventDefault();
@@ -187,87 +201,52 @@ function sendId() {
 
 function loadMore() {
     // $('.loadmore').on('click', function(){
-    //     var elCount = $(' .loadmore').data('val');
-    //     $('.loadmore').html("Loading...");
+        // var elCount = $(' .loadmore').data('val');
+        // $('.loadmore').html("Loading...");
 
-    // var offset = 0;
-    //
-    //     $.ajax({
-    //         type: "GET",
-    //         url: "/loadMore",
-    //         data: {
-    //             'offset': offset + 1,
-    //             'limit': 1
-    //         },
-    //         dataType: 'html',
-    //
-    //         success: function(data) {
-    //
-    //             $('ul.messages-list').append(data);
-    //
-    //             offset += 1;
-    //
-    //             // if(data != '') {
-    //             //     $('ul.messages-list').append(data);
-    //                 //
-    //                 // $.each(data, function(i, item) {
-    //                 //     var output = "<li class='messages'>" +
-    //                 //         "<div class='message-id'>" + data[i].MID + "</div>" +
-    //                 //         "<div class='row'>" +
-    //                 //         "<div class='three columns'>" +
-    //                 //         "<div class='user-avatar-small'>" +
-    //                 //         "<img src='" + data[i].mpic + "' alt='" + data[i].mpic + "'>" +
-    //                 //         "</div>" +
-    //                 //         "<p class='comments-count'>Total Comments: </span></p>" +
-    //                 //         "<a class='button u-full-width' href='#'>View Comments</a>" +
-    //                 //         "</div>" +
-    //                 //         "<div class='nine columns'>" +
-    //                 //         "<div class='row'>" +
-    //                 //         "<div class='six columns'>" +
-    //                 //         "<p class='message'><span class='message-title'>Title: </span>" + data[i].mtitle + "</p>" +
-    //                 //         "</div>" +
-    //                 //         "<div class='six columns'>" +
-    //                 //         "<span class='message-date'>Created at: </span>" + data[i].mdate + "" +
-    //                 //         "<p class='message-author'>Author : <span>" + data[i].mauthor + "</span></p>" +
-    //                 //         "</div></div>" +
-    //                 //         "<p class='message-desc-header'>Description: </p>" +
-    //                 //         "<p class='message-desc'>" + data[i].mdesc + "</p></div></div></li>" +
-    //                 //         "<hr>";
-    //                 //
-    //                 //
-    //                 //     $(".messages-list").append(output);
-    //                 //     console.log("Returned : " + data[i].MID);
-    //                 //
-    //                 //
-    //             // }else {
-    //             //     $('.loadmore').html("No Data");
-    //             // }
-    //
-    //         }
-    //         });
-    //     // $(window).scroll(function(){
-    //     //     if ($(window).scrollTop() >= $(document).height() - $(window).height()){
-    //     //         console.log("Bottom");
+    var offset = 4;
+
+        $.ajax({
+            type: "GET",
+            url: "/loadMore",
+            data: {
+                'offset': offset,
+                'limit': 3
+            },
+            dataType: 'html',
+
+            success: function(data) {
+
+                $('ul.messages-list').append(data);
+
+                offset += 3;
+            }
+            });
+        $(window).scroll(function(){
+            if ($(window).scrollTop() >= $(document).height() - $(window).height()){
+            console.log("Bottom");
     // $('.loadmore').on('click', function(){
-    //
-    //             $.ajax({
-    //                 type: "GET",
-    //                 url: "/loadMore",
-    //                 data: {
-    //                     'offset': offset,
-    //                     'limit': 1
-    //                 },
-    //                 dataType: 'html',
-    //
-    //                 success: function(data) {
-    //
-    //                     $('ul.messages-list').append(data);
-    //
-    //                     offset += 1;
-    //
-    //                 }
-    //             });
-    //     })
+
+                $.ajax({
+                    type: "GET",
+                    url: "/loadMore",
+                    data: {
+                        'offset': offset,
+                        'limit': 3
+                    },
+                    dataType: 'html',
+
+                    success: function(data) {
+
+                        $('ul.messages-list').append(data);
+
+                        offset += 3;
+
+                    }
+                });
+            }
+            // $('.loadmore').html('Data Loading').prop('disabled', true);
+        })
     // })
 }
 function toggle() {
