@@ -8,16 +8,18 @@ function init () {
 
 
 $(document).ready(function () {
-init()
+
+    $.when(init()).then( console.log('check init'));
+
 });
 
-$(document).ajaxComplete(function(event,request) {
-
-// init();
-    toggle();
-console.log(event);
-console.log(request);
-});
+// $(document).ajaxComplete(function(event,request) {
+//
+// // init();
+//     toggle();
+// console.log(event);
+// console.log(request);
+// });
 
 
     function addReply() {
@@ -215,14 +217,14 @@ function loadMore() {
         // var elCount = $(' .loadmore').data('val');
         $('.loadmore').html("Loading...");
 
-    var offset = 4;
+    var offset = 6;
 
         $.ajax({
             type: "GET",
             url: "/loadMore",
             data: {
                 'offset': offset,
-                'limit': 3
+                'limit': 5
             },
             dataType: 'html',
 
@@ -230,7 +232,7 @@ function loadMore() {
 
                 $('ul.messages-list').append(data);
 
-                offset += 3;
+                offset += 5;
             }
             });
         $(window).scroll(function(){
@@ -243,7 +245,7 @@ function loadMore() {
                     url: "/loadMore",
                     data: {
                         'offset': offset,
-                        'limit': 3
+                        'limit': 5
                     },
                     dataType: 'html',
 
@@ -251,7 +253,7 @@ function loadMore() {
 
                         $('ul.messages-list').append(data);
 
-                        offset += 3;
+                        offset += 5;
 
                     }
                 });

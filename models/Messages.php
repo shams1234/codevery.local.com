@@ -23,7 +23,7 @@ class Messages
 
             } else {
 
-                $limit = 3;
+                $limit = 5;
                 $offset = 0;
 
             }
