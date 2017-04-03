@@ -1,7 +1,6 @@
 function init () {
     replyForm();
     loadMore();
-    toggle();
     sendId();
     showChildReplies();
 
@@ -69,7 +68,6 @@ $(document).ready(function () {
                 setTimeout(function(){
                     location.reload();
                 }, 3000);
-
                 console.log("Form submitted successfully.\nReturned comment: " + JSON.stringify(jsonStr));
             }
         });
@@ -78,10 +76,6 @@ $(document).ready(function () {
 
     })
 }
-
-
-
-
 
 function addComment() {
 
@@ -142,23 +136,49 @@ function addMessage() {
     $(document).on('submit', '#messageForm', function (e) {
         e.preventDefault();
 
-        $.ajax({
-            type: "POST",
-            url: "/setMessages",
-            dataType: 'html',
-            data: {
-                title: $('#title').val(),
-                message: $('#message').val()
-            },
+        // $.ajax({
+        //     type: "POST",
+        //     url: "/setMessages",
+        //     dataType: 'html',
+        //     data: {
+        //         title: $('#title').val(),
+        //         message: $('#message').val()
+        //     },
+        //
+        //     success: function (jsonStr) {
+        //
+        //         $('ul.messages-list').html(jsonStr);
+        //
+        //         // toggle();
+        //
+        //         noty({
+        //             "theme": 'bootstrap',
+        //             "text": '<h4>Message successfully added! </h4>',
+        //             "layout": 'topRight',
+        //             "timeout": 5000,
+        //             "animation": {
+        //                 "open": 'animated bounceInRight',
+        //                 "close": 'animated bounceOutRight',
+        //                 "easing": 'swing',
+        //                 "speed": 500
+        //             },
+        //             "modal": false
+        //         });
+        //
+        //         console.log("Form submitted successfully.\nReturned message: " + JSON.stringify(jsonStr));
+        //     }
+        // });
 
-            success: function (jsonStr) {
+        axios.post('/setMessages', {
+            title: $('#title').val(),
+            message: $('#message').val()
+        })
+            .then(function (response) {
+                $('ul.messages-list').html(response.data);
 
-                $('ul.messages-list').html(jsonStr);
-
-                // toggle();
+                toggle();
 
                 noty({
-                    "theme": 'bootstrap',
                     "text": '<h4>Message successfully added! </h4>',
                     "layout": 'topRight',
                     "timeout": 5000,
@@ -171,9 +191,14 @@ function addMessage() {
                     "modal": false
                 });
 
-                console.log("Form submitted successfully.\nReturned message: " + JSON.stringify(jsonStr));
-            }
-        });
+                console.log("Form submitted successfully.\nReturned message: " + JSON.stringify(response.data));
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
+
+
 
         return false;
 

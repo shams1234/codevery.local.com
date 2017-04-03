@@ -13,4 +13,5 @@ return array(
     'Symfony\\Component\\EventDispatcher\\' => array($vendorDir . '/symfony/event-dispatcher'),
     'Silex' => array($vendorDir . '/silex/silex/src'),
     'Pimple' => array($vendorDir . '/pimple/pimple/lib'),
+    'PhpConsole' => array($vendorDir . '/php-console/php-console/src'),
 );

@@ -3,7 +3,9 @@
 class mainController
 {
     public function index()
+
     {
+
         Sessions::start();
 
         require_once ROOT . '/g-callback.php';

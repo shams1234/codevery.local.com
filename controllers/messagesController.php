@@ -20,6 +20,8 @@ class messagesController
 //    array_push($all,$allComments);
     array_push($all,$commentsById);
 
+        PC::debug($allMessages, 'allMessages');
+
 
     include (ROOT . '/views/messages.php');
 
@@ -52,6 +54,8 @@ class messagesController
 
         $allMessages = Messages::getAllMessages();
 
+
+        PC::debug($newMessage, 'newAddedMessage');
 //        echo json_encode($newMessage);
 
         include (ROOT . '/views/layouts/tmplMsg.php');

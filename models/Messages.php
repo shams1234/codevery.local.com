@@ -53,6 +53,9 @@ class Messages
     {
 
         $conn = Db::connect();
+        $_POST = json_decode(file_get_contents('php://input'), true);
+        PC::debug($_POST, 'POST');
+
 
         Sessions::start();
 

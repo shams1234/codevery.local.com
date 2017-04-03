@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/vendor/google/apiclient/src/Google/autoload.php';
+require_once __DIR__ . '/vendor/Google/autoload.php';
 
 const REDIRECT = 'http://codevery.local.com/g-callback.php';
 

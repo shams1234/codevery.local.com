@@ -1,5 +1,7 @@
 <script src="/app/js/jquery.min.js"></script>
 
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
 <script src="/app/js/jquery.form-validator.min.js"></script>
 
 <script src="/app/js/noty/jquery.noty.js"></script>
@@ -7,5 +9,6 @@
 <script src="/app/js/noty/themes/bootstrap.js"></script>
 
 <script src="/app/js/main.js"></script>
+
 </body>
 </html>

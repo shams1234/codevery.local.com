@@ -12,33 +12,29 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/Facebook/PersistentData" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/Facebook/PseudoRandomString" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/Facebook/Url" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/Google/Auth" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/Google/Cache" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/Google/Http" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/Google/IO" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/Google/Logger" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/Google/Service" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/Google/Signer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/Google/Task" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/Google/Utils" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/Google/Verifier" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/PhpConsole/Dispatcher" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/PhpConsole/Storage" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/google/apiclient" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/guzzlehttp/guzzle" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/guzzlehttp/ringphp" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/guzzlehttp/streams" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/pimple/pimple" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/log" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/react/promise" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/silex/silex" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/debug" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/event-dispatcher" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/http-foundation" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/http-kernel" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-mbstring" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/routing" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/twig/twig" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
       <library name="PHARS">
         <CLASSES>
-          <root url="phar://$MODULE_DIR$/vendor/twig/twig/test/Twig/Tests/Loader/Fixtures/phar/phar-sample.phar/" />
           <root url="phar://$MODULE_DIR$/composer.phar/" />
         </CLASSES>
         <SOURCES>
-          <root url="phar://$MODULE_DIR$/vendor/twig/twig/test/Twig/Tests/Loader/Fixtures/phar/phar-sample.phar/" />
           <root url="phar://$MODULE_DIR$/composer.phar/" />
         </SOURCES>
       </library>
@@ -56,22 +52,19 @@
           <root url="file://$MODULE_DIR$/vendor/Facebook/PersistentData" />
           <root url="file://$MODULE_DIR$/vendor/Facebook/PseudoRandomString" />
           <root url="file://$MODULE_DIR$/vendor/Facebook/Url" />
+          <root url="file://$MODULE_DIR$/vendor/Google/Auth" />
+          <root url="file://$MODULE_DIR$/vendor/Google/Cache" />
+          <root url="file://$MODULE_DIR$/vendor/Google/Http" />
+          <root url="file://$MODULE_DIR$/vendor/Google/IO" />
+          <root url="file://$MODULE_DIR$/vendor/Google/Logger" />
+          <root url="file://$MODULE_DIR$/vendor/Google/Service" />
+          <root url="file://$MODULE_DIR$/vendor/Google/Signer" />
+          <root url="file://$MODULE_DIR$/vendor/Google/Task" />
+          <root url="file://$MODULE_DIR$/vendor/Google/Utils" />
+          <root url="file://$MODULE_DIR$/vendor/Google/Verifier" />
+          <root url="file://$MODULE_DIR$/vendor/PhpConsole/Dispatcher" />
+          <root url="file://$MODULE_DIR$/vendor/PhpConsole/Storage" />
           <root url="file://$MODULE_DIR$/vendor/composer" />
-          <root url="file://$MODULE_DIR$/vendor/google/apiclient" />
-          <root url="file://$MODULE_DIR$/vendor/guzzlehttp/guzzle" />
-          <root url="file://$MODULE_DIR$/vendor/guzzlehttp/ringphp" />
-          <root url="file://$MODULE_DIR$/vendor/guzzlehttp/streams" />
-          <root url="file://$MODULE_DIR$/vendor/pimple/pimple" />
-          <root url="file://$MODULE_DIR$/vendor/psr/log" />
-          <root url="file://$MODULE_DIR$/vendor/react/promise" />
-          <root url="file://$MODULE_DIR$/vendor/silex/silex" />
-          <root url="file://$MODULE_DIR$/vendor/symfony/debug" />
-          <root url="file://$MODULE_DIR$/vendor/symfony/event-dispatcher" />
-          <root url="file://$MODULE_DIR$/vendor/symfony/http-foundation" />
-          <root url="file://$MODULE_DIR$/vendor/symfony/http-kernel" />
-          <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-mbstring" />
-          <root url="file://$MODULE_DIR$/vendor/symfony/routing" />
-          <root url="file://$MODULE_DIR$/vendor/twig/twig" />
         </CLASSES>
         <SOURCES>
           <root url="file://$MODULE_DIR$/vendor/Facebook/Authentication" />
@@ -84,22 +77,19 @@
           <root url="file://$MODULE_DIR$/vendor/Facebook/PersistentData" />
           <root url="file://$MODULE_DIR$/vendor/Facebook/PseudoRandomString" />
           <root url="file://$MODULE_DIR$/vendor/Facebook/Url" />
+          <root url="file://$MODULE_DIR$/vendor/Google/Auth" />
+          <root url="file://$MODULE_DIR$/vendor/Google/Cache" />
+          <root url="file://$MODULE_DIR$/vendor/Google/Http" />
+          <root url="file://$MODULE_DIR$/vendor/Google/IO" />
+          <root url="file://$MODULE_DIR$/vendor/Google/Logger" />
+          <root url="file://$MODULE_DIR$/vendor/Google/Service" />
+          <root url="file://$MODULE_DIR$/vendor/Google/Signer" />
+          <root url="file://$MODULE_DIR$/vendor/Google/Task" />
+          <root url="file://$MODULE_DIR$/vendor/Google/Utils" />
+          <root url="file://$MODULE_DIR$/vendor/Google/Verifier" />
+          <root url="file://$MODULE_DIR$/vendor/PhpConsole/Dispatcher" />
+          <root url="file://$MODULE_DIR$/vendor/PhpConsole/Storage" />
           <root url="file://$MODULE_DIR$/vendor/composer" />
-          <root url="file://$MODULE_DIR$/vendor/google/apiclient" />
-          <root url="file://$MODULE_DIR$/vendor/guzzlehttp/guzzle" />
-          <root url="file://$MODULE_DIR$/vendor/guzzlehttp/ringphp" />
-          <root url="file://$MODULE_DIR$/vendor/guzzlehttp/streams" />
-          <root url="file://$MODULE_DIR$/vendor/pimple/pimple" />
-          <root url="file://$MODULE_DIR$/vendor/psr/log" />
-          <root url="file://$MODULE_DIR$/vendor/react/promise" />
-          <root url="file://$MODULE_DIR$/vendor/silex/silex" />
-          <root url="file://$MODULE_DIR$/vendor/symfony/debug" />
-          <root url="file://$MODULE_DIR$/vendor/symfony/event-dispatcher" />
-          <root url="file://$MODULE_DIR$/vendor/symfony/http-foundation" />
-          <root url="file://$MODULE_DIR$/vendor/symfony/http-kernel" />
-          <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-mbstring" />
-          <root url="file://$MODULE_DIR$/vendor/symfony/routing" />
-          <root url="file://$MODULE_DIR$/vendor/twig/twig" />
         </SOURCES>
       </library>
     </orderEntry>
